@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Invitación de Boda</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+background:#0f0f0f;
+font-family:'Poppins',sans-serif;
+display:flex;
+justify-content:center;
+padding:20px;
+color:white;
+}
+
+.card{
+width:100%;
+max-width:700px;
+background:#1a1a1a;
+border-radius:20px;
+overflow:hidden;
+box-shadow:0 0 30px rgba(212,175,55,.35);
+border:1px solid #d4af37;
+}
+
+.banner{
+width:100%;
+height:420px;
+object-fit:cover;
+}
+
+.contenido{
+padding:35px;
+text-align:center;
+}
+
+h1{
+font-family:'Great Vibes',cursive;
+font-size:55px;
+color:#d4af37;
+margin-bottom:10px;
+}
+
+h2{
+font-size:22px;
+font-weight:300;
+margin-bottom:25px;
+color:white;
+}
+
+.nombres{
+font-family:'Great Vibes',cursive;
+font-size:42px;
+color:#d4af37;
+line-height:1.5;
+margin-bottom:20px;
+}
+
+p{
+font-size:18px;
+line-height:1.8;
+color:#ddd;
+}
+
+.info{
+margin-top:30px;
+font-size:20px;
+line-height:2;
+}
+
+#contador{
+margin-top:35px;
+padding:20px;
+border:1px solid #d4af37;
+border-radius:15px;
+background:#111;
+}
+
+#contador h3{
+color:#d4af37;
+margin-bottom:10px;
+font-size:25px;
+}
+
+#tiempo{
+font-size:26px;
+font-weight:bold;
+color:white;
+}
+
+.btn{
+display:inline-block;
+margin-top:30px;
+padding:15px 35px;
+background:#d4af37;
+color:#111;
+text-decoration:none;
+border-radius:50px;
+font-size:18px;
+font-weight:bold;
+transition:.3s;
+}
+
+.btn:hover{
+background:#f1d47a;
+transform:scale(1.05);
+}
+
+.footer{
+margin-top:35px;
+font-size:30px;
+font-family:'Great Vibes',cursive;
+color:#d4af37;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="card">
+
+<img src="boda.jpg" class="banner">
+
+<div class="contenido">
+
+<h1>Nuestra Boda</h1>
+
+<h2>¡Hola! ¿Qué tal?<br>Estás invitado a nuestra pequeña boda.</h2>
+
+<div class="nombres">
+Brayan Ivan García Posadas
+<br>
+&
+<br>
+Evelyn Magali López Albino
+</div>
+
+<p>
+Con mucha alegría queremos compartir contigo este día tan especial.
+</p>
+
+<div class="info">
+
+📅 <b>Fecha:</b> 7 de noviembre<br>
+
+🕓 <b>Hora:</b> 4:00 PM
+
+</div>
+
+<div id="contador">
+
+<h3>Faltan</h3>
+
+<div id="tiempo"></div>
+
+</div>
+
+<a class="btn"
+href="https://maps.app.goo.gl/Cppbd8WbbqTcUiWy5"
+target="_blank">
+
+📍 Ver ubicación
+
+</a>
+
+<div class="footer">
+
+¡Esperamos contar contigo! ❤️
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+const fechaBoda = new Date("2026-11-07T16:00:00");
+
+function actualizar(){
+
+const ahora = new Date();
+
+const diferencia = fechaBoda - ahora;
+
+if(diferencia<=0){
+
+document.getElementById("tiempo").innerHTML="❤️ ¡Llegó el gran día! ❤️";
+
+return;
+
+}
+
+const dias=Math.floor(diferencia/(1000*60*60*24));
+
+const horas=Math.floor((diferencia%(1000*60*60*24))/(1000*60*60));
+
+const minutos=Math.floor((diferencia%(1000*60*60))/(1000*60));
+
+const segundos=Math.floor((diferencia%(1000*60))/1000);
+
+document.getElementById("tiempo").innerHTML=
+
+dias+" días<br>"+
+
+horas+" horas "+
+
+minutos+" minutos "+
+
+segundos+" segundos";
+
+}
+
+setInterval(actualizar,1000);
+
+actualizar();
+
+</script>
+
+</body>
+</html>
